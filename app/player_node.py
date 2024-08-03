@@ -35,3 +35,4 @@ class PlayerNode:
 
     def __str__(self):
         return f"PlayerNode(player={self._player}, next={self._next}, previous={self._prev})"
+
