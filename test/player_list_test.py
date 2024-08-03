@@ -14,8 +14,17 @@ class TestPlayerList(unittest.TestCase):
 
     def test_insert_first(self):
         self.pl.insert_first(self.player1)
+        self.pl.insert_first(self.player2)
         self.assertFalse(self.pl.is_empty())
-        self.assertEqual(str(self.pl), f"PlayerNode(player={self.player1}, next=None, previous=None)")
+        self.assertEqual(str(self.pl), "PlayerNode(player=Player(uid=2, name=Alex), next=1, previous=None) -> "
+                        "PlayerNode(player=Player(uid=1, name=Chloe), next=None, previous=2)")
+
+    def test_tail_update(self):
+        self.pl.insert_first(self.player1)
+        self.pl.insert_first(self.player2)
+        self.assertEqual(self.pl.tail.player, self.player1)
+        self.assertEqual(self.pl.tail.next, None)
+        self.assertEqual(self.pl.tail.prev.player, self.player2)
 
 
 if __name__ == '__main__':

@@ -6,6 +6,7 @@ from player_node import PlayerNode
 class PlayerList:
     def __init__(self) -> None:
         self._head = None
+        self._tail = None
 
     def is_empty(self):
         return self._head is None
@@ -15,10 +16,18 @@ class PlayerList:
 
         if self.is_empty():
             self._head = new_node
+            self._tail = new_node
         else:
             new_node.next = self._head
             self._head.prev = new_node
             self._head = new_node
+
+        if self._tail is None:
+            self._tail = new_node
+
+    @property
+    def tail(self):
+        return self._tail
 
     def __str__(self):
         node = []
@@ -28,5 +37,3 @@ class PlayerList:
             current = current.next
         return " -> ".join(node)
 
-
-# step 5 commit 전 여기 node부터 다시하기 __str__여기부터.

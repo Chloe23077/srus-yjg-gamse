@@ -34,5 +34,6 @@ class PlayerNode:
         return self._player.uid
 
     def __str__(self):
-        return f"PlayerNode(player={self._player}, next={self._next}, previous={self._prev})"
-
+        next_uid = self._next._player.uid if self._next else "None"
+        prev_uid = self._prev._player.uid if self._prev else "None"
+        return f"PlayerNode(player={self._player}, next={next_uid}, previous={prev_uid})"
