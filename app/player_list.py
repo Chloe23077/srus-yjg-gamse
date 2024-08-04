@@ -37,3 +37,15 @@ class PlayerList:
             current = current.next
         return " -> ".join(node)
 
+    def insert_last(self, player: Player):
+        new_node = PlayerNode(player)
+
+        if self.is_empty():
+            self._head = new_node
+            self._tail = new_node
+        else:
+            self._tail.next = new_node
+            new_node.prev = self._tail
+            self._tail = new_node
+
+

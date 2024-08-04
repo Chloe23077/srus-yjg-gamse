@@ -26,6 +26,12 @@ class TestPlayerList(unittest.TestCase):
         self.assertEqual(self.pl.tail.next, None)
         self.assertEqual(self.pl.tail.prev.player, self.player2)
 
+    def test_insert_last(self):
+        self.pl.insert_last(self.player1)
+        self.pl.insert_last(self.player2)
+        self.assertFalse(self.pl.is_empty())
+        self.assertEqual(str(self.pl), "PlayerNode(player=Player(uid=1, name=Chloe), next=2, previous=None) -> "
+                        "PlayerNode(player=Player(uid=2, name=Alex), next=None, previous=1)")
 
 if __name__ == '__main__':
     unittest.main()
