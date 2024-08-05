@@ -88,8 +88,17 @@ class PlayerList:
             current = current.next
         raise ValueError("key not found!!!")
 
-
-
+    def display(self, forward=True):
+        if forward:
+            current = self._head
+            while current:
+                print(current)
+                current = current.next
+        else:
+            current = self._tail
+            while current:
+                print(current)
+                current = current.prev
 
 
 
