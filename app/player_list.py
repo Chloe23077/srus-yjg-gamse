@@ -72,6 +72,23 @@ class PlayerList:
             self._tail = self._tail.prev
             self._tail.next = None
 
+    def delete_by_key(self, key: str):
+        current = self._head
+
+        while current is not None:
+            if current.key == key:
+                if current == self._head:
+                    self.delete_first()
+                elif current == self._tail:
+                    self.delete_last()
+                else:
+                    current.prev.next = current.next
+                    current.next.prev = current.prev
+                return
+            current = current.next
+        raise ValueError("key not found!!!")
+
+
 
 
 

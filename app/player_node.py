@@ -30,6 +30,7 @@ class PlayerNode:
         self._prev = prev_node
 
     # creating a new property variable, called key
+    @property
     def key(self):
         return self._player.uid
 
