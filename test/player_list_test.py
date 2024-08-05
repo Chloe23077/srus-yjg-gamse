@@ -33,5 +33,17 @@ class TestPlayerList(unittest.TestCase):
         self.assertEqual(str(self.pl), "PlayerNode(player=Player(uid=1, name=Chloe), next=2, previous=None) -> "
                         "PlayerNode(player=Player(uid=2, name=Alex), next=None, previous=1)")
 
+    def test_delete_first(self):
+        self.pl.insert_first(self.player1)
+        self.pl.insert_first(self.player2)
+        self.pl.delete_first()
+        self.assertEqual(str(self.pl), "PlayerNode(player=Player(uid=1, name=Chloe), next=None, previous=None)")
+
+    def test_delete_last(self):
+        self.pl.insert_first(self.player1)
+        self.pl.insert_first(self.player2)
+        self.pl.delete_last()
+        self.assertEqual(str(self.pl), "PlayerNode(player=Player(uid=2, name=Alex), next=None, previous=None)")
+
 if __name__ == '__main__':
     unittest.main()
