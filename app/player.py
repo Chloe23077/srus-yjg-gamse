@@ -109,6 +109,15 @@ class Player:
         return False
     @staticmethod
     def sort_player(players):
+        """
+        Sorts a list of Player in descending order on their scores using selection sort.
+
+        Args:
+            players (list of Player): The list of Player to sort.
+
+        Returns:
+            list of Player: The sorted list of Player.
+        """
         for i in range(len(players)):
             max_index = i
             for j in range(i+1, len(players)):
