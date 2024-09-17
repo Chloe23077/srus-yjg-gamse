@@ -1,5 +1,6 @@
 from argon2 import PasswordHasher
 
+
 class Player:
     def __init__(self, uid: str, name: str, score: int) -> None:
         """
@@ -107,6 +108,7 @@ class Player:
         if isinstance(other, Player):
             return self._score >= other._score
         return False
+
     @staticmethod
     def sort_player(players):
         """
@@ -136,3 +138,18 @@ class Player:
             str: A string representing the player as "Player(uid=..., name=..., score=...)".
         """
         return f"Player(uid={self._uid}, name={self._name}, score={self._score})"
+
+
+def main():
+    player = Player("1", "Chloe",100)
+    print(player)
+
+    player.add_password("my_password")
+    print("password add successful")
+
+    correct = player.verify_password("my_password")
+    print(f"password verification: {correct}")
+
+
+if __name__ == "__main__":
+    main()
