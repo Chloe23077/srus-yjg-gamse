@@ -30,6 +30,19 @@ class PlayerBST:
         else:
             current.player = player
 
+    def search(self, name: str) -> PlayerBNode:
+        return self._search_recursive(self._root, name)
+
+    def _search_recursive(self, current: PlayerBNode, name: str):
+        if current is None:
+            return None
+        if name == current.player.name:
+            return current
+        elif name < current.player.name:
+            return self._search_recursive(current.left, name)
+        else:
+            return self._search_recursive(current.right, name)
+
 
 def main():
     player1 = Player("1", "Chloe",100)
@@ -45,6 +58,12 @@ def main():
     print("Root: ", player_bst.root.player)
     print("Left Child: ", player_bst.root.left.player)
     print("Right Child: ", player_bst.root.right.player)
+
+    target_name = "John"
+    found_node = player_bst.search(target_name)
+
+    if found_node:
+        print(f"Player found: {found_node.player}")
 
 
 if __name__ == "__main__":
