@@ -8,6 +8,10 @@ class PlayerBNode:
     def player(self):
         return self._player
 
+    @player.setter
+    def player(self, player):
+        self._player = player
+
     @property
     def left(self):
         return self._left
