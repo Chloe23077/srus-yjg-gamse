@@ -79,6 +79,8 @@ class Player:
         Args:
             new_score (int): The new score to set.
         """
+        if new_score < 0:
+            raise ValueError("Score must be a positive int")
         self._score = new_score
 
     def __eq__(self, other) -> bool:
